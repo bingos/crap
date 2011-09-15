@@ -45,7 +45,7 @@ q[for when it hits the fan];
 
 Enables L<strict> and L<warnings> without all the typing.
 
-To enable just C<no crap> in your script.
+To enable just type C<no crap> in your script.
 
 C<use crap> disables L<strict> and L<warnings>.
 
