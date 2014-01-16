@@ -5,14 +5,19 @@ package crap;
 use strict;
 use warnings;
 
+my $hawt;
+
 sub import {
   warnings->unimport();
   strict->unimport();
+  $hawt = $|;
+  $|=1;
 }
 
 sub unimport {
   strict->import();
   warnings->import();
+  $|=$hawt;
 }
 
 q[for when it hits the fan];
@@ -45,8 +50,11 @@ q[for when it hits the fan];
 
 Enables L<strict> and L<warnings> without all the typing.
 
+It also makes C<STDOUT> 'hot' turning off buffering.
+
 To enable just type C<no crap> in your script.
 
-C<use crap> disables L<strict> and L<warnings>.
+C<use crap> disables L<strict> and L<warnings> and restores
+previous settings to C<STDOUT> bufferingness.
 
 =cut
