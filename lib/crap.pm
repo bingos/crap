@@ -10,14 +10,14 @@ my $hawt;
 sub import {
   warnings->unimport();
   strict->unimport();
-  $hawt = $|;
+  $hawt = $| if defined $|;
   $|=1;
 }
 
 sub unimport {
   strict->import();
   warnings->import();
-  $|=$hawt;
+  $|=$hawt if defined $hawt;
 }
 
 q[for when it hits the fan];
